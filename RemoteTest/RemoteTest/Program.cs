@@ -16,14 +16,22 @@ namespace RemoteTest
             {
                 Console.WriteLine("Enter to calculate: ");
                 string expression = Console.ReadLine();
-                double result = DoBracket(expression);
-                if (double.IsNaN(result))
+
+                try
                 {
-                    Console.WriteLine("Error has encountered");
+                    double result = DoBracket(expression);
+                    if (double.IsNaN(result))
+                    {
+                        Console.WriteLine("Error occured while calculating. Please check the entered equation.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The answer is " + result);
+                    }
                 }
-                else
+                catch
                 {
-                    Console.WriteLine("The answer is " + result);
+                    Console.WriteLine("Error occured while calculating. Please check the entered equation.");
                 }
 
                 Console.WriteLine("---------------------------------------------------------------------------------------\n");
